@@ -15,6 +15,7 @@ typedef struct edge{
 
 
 void initGraph(graph *g, char* filename);
+void BFS(graph g, int start);
 void printGraph(graph g);
 
 #endif // GRAPH_H_INCLUDED
