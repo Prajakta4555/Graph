@@ -47,6 +47,33 @@ void BFS(graph g, int start){
     }
 }
 
+
+void DFS(graph g, int start){
+   Stack s;
+   int n,i;
+   init(&s, g.n);
+   int *visited = (int*)calloc(g.n,sizeof(int)); //all initialized to zero
+   visited[start] = 1;
+   printf("%d\t", start);
+   push(&s, start);
+   while(isEmpty(s)!=INT_MAX){
+        n = peek(s);
+        //find adjacent non visited vertex of n
+        for(i=0;i<g.n; i++){
+            if(g.A[n][i] && !visited[i]){
+                visited[i] = 1;
+                printf("%d\t", i);
+                push(&s, i);
+                break;
+            }
+        }
+        if(i == g.n)
+            pop(&s);
+
+   }
+   return;
+}
+
 void printGraph(graph g){
     for(int i=0; i<g.n; i++){
         for(int j=0; j<g.n; j++){
