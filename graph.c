@@ -26,6 +26,7 @@ void initGraph(graph *g, char* filename){
     return;
 }
 
+<<<<<<< HEAD
 edge* prims(graph *g, int s){
     edge *spanningtree = (edge *)malloc(sizeof(edge) * (g->n - 1));
     int *visited = (int *)calloc(g->n, sizeof(int));
@@ -56,6 +57,27 @@ edge* prims(graph *g, int s){
         minedge.weight = INT_MAX;
     }
         return spanningtree;
+=======
+void BFS(graph g, int start){
+    CircularQueue q;
+    int n,i;
+    initQueue(&q, g.n);
+    int *visited = (int*)calloc(g.n,sizeof(int));
+    visited[start] = 1;
+    printf("%d\t", start);
+    enqueue(&q, start);
+    while(isEmptyQ(q) != INT_MAX){
+        n = dequeue(&q);
+
+        for(i=0;i<g.n; i++){
+            if(g.A[n][i] && !visited[i]){
+                visited[i] = 1;
+                printf("%d\t", i);
+                enqueue(&q,i);
+            }
+        }
+    }
+>>>>>>> 00a7cc8f05230ddc8212b0df1edc881bacc4f988
 }
 
 
