@@ -15,6 +15,10 @@ typedef struct edge{
 
 
 void initGraph(graph *g, char* filename);
+void DFS(graph g, int start);
+void BFS(graph g, int start);
+edge* prims(graph *g, int x);
+int* dijkstras(graph g, int start);
 void printGraph(graph g);
 
 #endif // GRAPH_H_INCLUDED
